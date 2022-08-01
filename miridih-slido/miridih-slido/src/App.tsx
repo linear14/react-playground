@@ -20,6 +20,8 @@ const resetCss = css`
   }
 
   button {
+    font-size: 16px;
+    background: none;
     border: none;
   }
 `;
