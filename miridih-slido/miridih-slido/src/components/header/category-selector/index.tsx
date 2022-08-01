@@ -6,8 +6,11 @@ import { Category } from "../../../types/category";
 import Item from "./item";
 
 const Container = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
   display: flex;
-  justify-self: center;
   align-items: center;
   gap: 32px;
 `;

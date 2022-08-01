@@ -3,7 +3,8 @@
 import { jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Category } from "../../types/category";
-import CategoryList from "./category-list";
+import AuthList from "./auth-list";
+import CategorySelector from "./category-selector";
 import Logo from "./logo";
 
 const Container = styled.div`
@@ -12,6 +13,7 @@ const Container = styled.div`
 `;
 
 const NavContainer = styled.nav`
+  position: relative;
   width: 1280px;
   max-width: 1280px;
   padding: 0 32px;
@@ -31,7 +33,8 @@ const Header = ({ categoryList }: Props) => {
     <Container>
       <NavContainer>
         <Logo />
-        <CategoryList list={categoryList} />
+        <CategorySelector list={categoryList} />
+        <AuthList />
       </NavContainer>
     </Container>
   );

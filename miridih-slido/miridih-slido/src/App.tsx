@@ -18,6 +18,10 @@ const resetCss = css`
   *::after {
     box-sizing: border-box;
   }
+
+  button {
+    border: none;
+  }
 `;
 
 function App() {
