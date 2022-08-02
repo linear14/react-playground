@@ -41,7 +41,7 @@ const Item = ({ item }: Props) => {
       onMouseLeave={setHover.bind(this, false)}
     >
       {item.name}
-      {onHover && !hasAnchor && <SubCategoryDropdown />}
+      {onHover && !hasAnchor && <SubCategoryDropdown list={item.subCategories}/>}
     </Container>
   );
 };
