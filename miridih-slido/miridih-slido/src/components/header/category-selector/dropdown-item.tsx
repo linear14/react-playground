@@ -5,7 +5,7 @@ import styled from "@emotion/styled";
 
 const Container = styled.div<{ selected: boolean }>`
   height: 48px;
-  padding: 0 24px;
+  padding: 0 32px;
 
   white-space: nowrap;
   cursor: pointer;
@@ -16,7 +16,7 @@ const Container = styled.div<{ selected: boolean }>`
   ${({ selected }) =>
     selected &&
     css`
-      background-color: #eeeeee;
+      background-color: #f4f4f4;
     `}
 `;
 

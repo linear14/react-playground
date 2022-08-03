@@ -25,8 +25,8 @@ const Left = styled.div`
 `;
 
 const Right = styled.div`
-  width: 300px;
-  padding: 16px 32px;
+  width: 340px;
+  padding: 32px;
 
   display: flex;
   flex-direction: column;
@@ -46,7 +46,7 @@ const Name = styled.div`
 `;
 
 const Description = styled.div`
-  line-height: 1.25;
+  line-height: 1.5;
   text-align: start;
 `;
 
@@ -54,9 +54,9 @@ const LearnMoreLink = styled.a`
   &::before {
     content: "Learn More";
     text-decoration: underline;
-    cursor: pointer;
     color: #39ac37;
     font-weight: bold;
+    cursor: pointer;
   }
 `;
 
