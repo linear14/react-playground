@@ -12,7 +12,6 @@ const Container = styled.div<{ selected: boolean }>`
 
   display: flex;
   align-items: center;
-  justify-content: center;
 
   ${({ selected }) =>
     selected &&

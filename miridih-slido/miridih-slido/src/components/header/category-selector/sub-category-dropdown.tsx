@@ -26,6 +26,38 @@ const Left = styled.div`
 
 const Right = styled.div`
   width: 300px;
+  padding: 16px 32px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 16px;
+`;
+
+const Icon = styled.img`
+  width: 60px;
+  height: 60px;
+`;
+
+const Name = styled.div`
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+const Description = styled.div`
+  line-height: 1.25;
+  text-align: start;
+`;
+
+const LearnMoreLink = styled.a`
+  &::before {
+    content: "Learn More";
+    text-decoration: underline;
+    cursor: pointer;
+    color: #39ac37;
+    font-weight: bold;
+  }
 `;
 
 interface Props {
@@ -34,6 +66,8 @@ interface Props {
 
 const SubCategoryDropdown = ({ list }: Props) => {
   const [currentIdx, setCurrentIdx] = useState<number>(0);
+  const currentItem = list[currentIdx];
+  const hasMoreInfo = currentItem.description && currentItem.icon;
 
   return (
     <Container>
@@ -47,7 +81,14 @@ const SubCategoryDropdown = ({ list }: Props) => {
           />
         ))}
       </Left>
-      <Right>{list[currentIdx].name}</Right>
+      {hasMoreInfo && (
+        <Right>
+          <Icon src={currentItem.icon} alt={currentItem.name} />
+          <Name>{currentItem.name}</Name>
+          <Description>{currentItem.description}</Description>
+          <LearnMoreLink />
+        </Right>
+      )}
     </Container>
   );
 };
