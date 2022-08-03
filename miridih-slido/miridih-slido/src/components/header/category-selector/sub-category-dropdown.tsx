@@ -1,10 +1,11 @@
 /** @jsxImportSource @emotion/react */
 
-import { jsx } from "@emotion/react";
+import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { SubCategory } from "../../../types/category";
-import DropdownItem from "./dropdown-item";
+
+// Container
 
 const Container = styled.div`
   position: absolute;
@@ -33,6 +34,25 @@ const Right = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
   gap: 16px;
+`;
+
+// Component
+
+const SubCategoryItem = styled.div<{ selected: boolean }>`
+  height: 48px;
+  padding: 0 32px;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  ${({ selected }) =>
+    selected &&
+    css`
+      background-color: #f4f4f4;
+    `}
 `;
 
 const Icon = styled.img`
@@ -73,12 +93,13 @@ const SubCategoryDropdown = ({ list }: Props) => {
     <Container>
       <Left>
         {list.map((item, idx) => (
-          <DropdownItem
+          <SubCategoryItem
             key={item.id}
-            name={item.name}
             selected={currentIdx === idx}
-            onSelect={setCurrentIdx.bind(this, idx)}
-          />
+            onMouseEnter={setCurrentIdx.bind(this, idx)}
+          >
+            {item.name}
+          </SubCategoryItem>
         ))}
       </Left>
       {hasMoreInfo && (

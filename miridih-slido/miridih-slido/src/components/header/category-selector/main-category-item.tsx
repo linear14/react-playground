@@ -2,7 +2,7 @@
 
 import { css, jsx } from "@emotion/react";
 import styled from "@emotion/styled";
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { Category } from "../../../types/category";
 import SubCategoryDropdown from "./sub-category-dropdown";
 
@@ -27,7 +27,7 @@ interface Props {
   item: Category;
 }
 
-const Item = ({ item }: Props) => {
+const MainCategoryItem = ({ item }: Props) => {
   const [onHover, setHover] = useState<boolean>(false);
 
   const tagName: ElementTagName = item.subCategories.length ? "button" : "a";
@@ -41,9 +41,11 @@ const Item = ({ item }: Props) => {
       onMouseLeave={setHover.bind(this, false)}
     >
       {item.name}
-      {onHover && !hasAnchor && <SubCategoryDropdown list={item.subCategories}/>}
+      {onHover && !hasAnchor && (
+        <SubCategoryDropdown list={item.subCategories} />
+      )}
     </Container>
   );
 };
 
-export default Item;
+export default MainCategoryItem;

@@ -3,7 +3,7 @@
 import { jsx } from "@emotion/react";
 import styled from "@emotion/styled";
 import { Category } from "../../../types/category";
-import Item from "./item";
+import MainCategoryItem from "./main-category-item";
 
 const Container = styled.div`
   position: absolute;
@@ -23,7 +23,7 @@ const CategorySelector = ({ list }: Props) => {
   return (
     <Container>
       {list.map((item) => (
-        <Item key={item.id} item={item} />
+        <MainCategoryItem key={item.id} item={item} />
       ))}
     </Container>
   );
