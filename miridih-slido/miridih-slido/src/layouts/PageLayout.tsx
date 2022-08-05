@@ -1,7 +1,14 @@
+import styled from "@emotion/styled";
 import { PropsWithChildren, useEffect, useState } from "react";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import { Category } from "../types/category";
+
+const Main = styled.main`
+  width: 1280px;
+  max-width: 1280px;
+  margin: 0 auto;
+`;
 
 interface Props extends PropsWithChildren {}
 
@@ -23,7 +30,7 @@ const PageLayout = ({ children }: Props) => {
   return (
     <>
       <Header categoryList={headerCategoryList} />
-      {children}
+      <Main>{children}</Main>
       <Footer categoryList={footerCategoryList} />
     </>
   );
