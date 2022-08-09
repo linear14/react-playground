@@ -1,5 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
+import { css } from "@emotion/react";
 import styled from "@emotion/styled";
 import AutoPlayVideo from "../components/common/AutoPlayVideo";
 import Button from "../components/common/Button";
@@ -39,7 +40,12 @@ const Home = () => {
         <UnderlineLink>Schedule a demo</UnderlineLink>
       </Horizontal>
       <Horizontal css={marginCss({ top: 48, bottom: 32 })}>
-        <AutoPlayVideo src="/videos/videos_welcome.mp4" width={800} />
+        <AutoPlayVideo
+          src="/videos/videos_welcome.mp4"
+          extraCss={css`
+            width: 800px;
+          `}
+        />
       </Horizontal>
       <Integrations />
     </>
