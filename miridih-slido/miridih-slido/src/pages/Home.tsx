@@ -5,6 +5,7 @@ import AutoPlayVideo from "../components/common/AutoPlayVideo";
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
 import UnderlineLink from "../components/common/UnderlineLink";
+import Integrations from "../components/home/integrations";
 import { marginCss } from "../utils/style-util";
 
 const Horizontal = styled.div`
@@ -40,6 +41,7 @@ const Home = () => {
       <Horizontal css={marginCss({ top: 48, bottom: 32 })}>
         <AutoPlayVideo src="/videos/videos_welcome.mp4" width={800} />
       </Horizontal>
+      <Integrations />
     </>
   );
 };
