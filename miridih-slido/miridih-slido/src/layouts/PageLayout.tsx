@@ -8,6 +8,10 @@ const Main = styled.main`
   width: 1280px;
   max-width: 1280px;
   margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 interface Props extends PropsWithChildren {}

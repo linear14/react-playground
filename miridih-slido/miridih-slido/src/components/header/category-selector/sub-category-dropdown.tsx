@@ -4,6 +4,7 @@ import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
 import { useState } from "react";
 import { SubCategory } from "../../../types/category";
+import UnderlineLink from "../../common/UnderlineLink";
 
 // Container
 
@@ -70,16 +71,6 @@ const Description = styled.div`
   text-align: start;
 `;
 
-const LearnMoreLink = styled.a`
-  &::before {
-    content: "Learn More";
-    text-decoration: underline;
-    color: #39ac37;
-    font-weight: bold;
-    cursor: pointer;
-  }
-`;
-
 interface Props {
   list: SubCategory[];
 }
@@ -107,7 +98,7 @@ const SubCategoryDropdown = ({ list }: Props) => {
           <Icon src={currentItem.icon} alt={currentItem.name} />
           <Name>{currentItem.name}</Name>
           <Description>{currentItem.description}</Description>
-          <LearnMoreLink />
+          <UnderlineLink>Learn More</UnderlineLink>
         </Right>
       )}
     </Container>
