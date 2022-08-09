@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
-import { jsx, css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { marginCss } from "../utils/style-util";
 
 const H1 = styled.h1`
   font-size: 64px;
@@ -14,22 +14,8 @@ const Text = styled.p`
   font-size: 20px;
   line-height: 32px;
   text-align: center;
+  letter-spacing: -0.5px;
 `;
-
-const marginCss = ({
-  left = 0,
-  right = 0,
-  top = 0,
-  bottom = 0,
-}: {
-  left?: number;
-  right?: number;
-  top?: number;
-  bottom?: number;
-}) =>
-  css`
-    margin: ${top}px ${right}px ${bottom}px ${left}px;
-  `;
 
 const Home = () => {
   return (
