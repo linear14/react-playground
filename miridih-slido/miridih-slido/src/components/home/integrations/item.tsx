@@ -5,6 +5,7 @@ import styled from "@emotion/styled";
 import Text from "../../common/Text";
 
 const Container = styled.div`
+  cursor: pointer;
   display: flex;
   flex: 1;
   flex-direction: column;

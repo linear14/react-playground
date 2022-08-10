@@ -23,6 +23,17 @@ const H1 = styled.h1`
   text-align: center;
 `;
 
+const H2 = styled.h2`
+  font-size: 48px;
+  line-height: 1.125;
+  font-weight: bold;
+  text-align: center;
+
+  span {
+    color: #39ac37;
+  }
+`;
+
 const Home = () => {
   return (
     <>
@@ -48,6 +59,18 @@ const Home = () => {
         />
       </Horizontal>
       <Integrations />
+      <H2 css={marginCss({ bottom: 24 })}>
+        It’s how you <span>include everyone</span>
+        <br />
+        in your meetings
+      </H2>
+      <Text>
+        Slido gives you everything you need to engage your participants, capture
+        their views and make everyone feel
+        <br />
+        connected – whether you’re running a team call, training or an
+        all-company meeting.
+      </Text>
     </>
   );
 };
