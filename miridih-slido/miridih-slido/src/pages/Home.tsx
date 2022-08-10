@@ -6,7 +6,9 @@ import AutoPlayVideo from "../components/common/AutoPlayVideo";
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
 import UnderlineLink from "../components/common/UnderlineLink";
+import Badges from "../components/home/badges.tsx";
 import Integrations from "../components/home/integrations";
+import SubFeatures from "../components/home/sub-features";
 import { marginCss, paddingCss } from "../utils/style-util";
 
 const Section = styled.div<{ gap?: string; fitContent?: boolean }>`
@@ -87,6 +89,12 @@ const Home = () => {
           connected – whether you’re running a team call, training or an
           all-company meeting.
         </Text>
+      </Section>
+      <Section css={paddingCss({ top: 80, bottom: 82, horizontal: 32 })}>
+        <SubFeatures />
+      </Section>
+      <Section css={paddingCss({ vertical: 56 })}>
+        <Badges />
       </Section>
     </>
   );
