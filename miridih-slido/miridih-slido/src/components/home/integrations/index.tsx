@@ -4,14 +4,6 @@ import { Integration } from "../../../types/integration";
 import Text from "../../common/Text";
 import Item from "./item";
 
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  padding: 56px 32px;
-  gap: 32px;
-`;
-
 const ItemContainer = styled.div`
   display: flex;
 `;
@@ -31,14 +23,14 @@ const Integrations = () => {
   }, []);
 
   return (
-    <Container>
+    <>
       <Text>You can use Slido with</Text>
       <ItemContainer>
         {integrationList.map((item) => (
           <Item key={item.id} name={item.name} imgSrc={item.icon} />
         ))}
       </ItemContainer>
-    </Container>
+    </>
   );
 };
 
