@@ -25,7 +25,7 @@ const Badges = () => {
     <>
       <ItemContainer>
         {badgeList.map((item) => (
-          <img src={item.badge} alt={item.title} />
+          <img key={item.id} src={item.badge} alt={item.title} />
         ))}
       </ItemContainer>
     </>

@@ -8,6 +8,7 @@ import Text from "../components/common/Text";
 import UnderlineLink from "../components/common/UnderlineLink";
 import Badges from "../components/home/badges.tsx";
 import Integrations from "../components/home/integrations";
+import MainFeatureViewer from "../components/home/main-feature-viewer";
 import SubFeatures from "../components/home/sub-features";
 import { marginCss, paddingCss } from "../utils/style-util";
 
@@ -43,6 +44,7 @@ const H2 = styled.h2`
   }
 `;
 
+// Section을 집어넣을까 말까 고민하고 있음
 const Home = () => {
   return (
     <>
@@ -89,6 +91,9 @@ const Home = () => {
           connected – whether you’re running a team call, training or an
           all-company meeting.
         </Text>
+      </Section>
+      <Section css={paddingCss({ vertical: 80, horizontal: 32 })}>
+        <MainFeatureViewer />
       </Section>
       <Section css={paddingCss({ top: 80, bottom: 82, horizontal: 32 })}>
         <SubFeatures />
