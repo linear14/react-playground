@@ -36,7 +36,11 @@ const MainFeatureViewer = () => {
           width: 50%;
         `}
       />
-      <ExpandableList listItem={featureList} />
+      <ExpandableList
+        listItem={featureList}
+        selectedIdx={selectedIdx}
+        handleSelect={setSelectedIdx}
+      />
     </HorizontalContainer>
   );
 };

@@ -10,11 +10,11 @@ const Container = styled.div`
 
 interface Props {
   listItem: MainFeature[];
+  selectedIdx: number;
+  handleSelect: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const ExpandableList = ({ listItem }: Props) => {
-  const [selectedIdx, setSelectedIdx] = useState<number>(0);
-
+const ExpandableList = ({ listItem, selectedIdx, handleSelect }: Props) => {
   return (
     <Container>
       {listItem.map((item, idx) => (
@@ -22,7 +22,7 @@ const ExpandableList = ({ listItem }: Props) => {
           key={item.id}
           item={item}
           expand={selectedIdx === idx}
-          handleExpandState={setSelectedIdx.bind(this, idx)}
+          handleExpandState={handleSelect.bind(this, idx)}
         />
       ))}
     </Container>
