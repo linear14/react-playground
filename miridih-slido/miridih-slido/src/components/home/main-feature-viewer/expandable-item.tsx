@@ -32,7 +32,21 @@ const Flex = styled.div`
   gap: 16px;
 `;
 
-const Body = styled.div``;
+const Body = styled.div<{ expand: boolean }>`
+  overflow: hidden;
+
+  ${({ expand }) =>
+    expand
+      ? css`
+          visibility: visible;
+          max-height: 200px;
+          transition: 0.8s;
+        `
+      : css`
+          visibility: hidden;
+          max-height: 0;
+        `}
+`;
 
 const Title = styled.div`
   font-size: 24px;
@@ -68,11 +82,9 @@ const ExpandableItem = ({ item, expand, handleExpandState }: Props) => {
         </Flex>
         <Arrow src={"/icons/ic_arrow_down.svg"} expand={expand} />
       </Header>
-      {expand && (
-        <Body>
-          <Description>{item.description}</Description>
-        </Body>
-      )}
+      <Body expand={expand}>
+        <Description>{item.description}</Description>
+      </Body>
     </Container>
   );
 };
