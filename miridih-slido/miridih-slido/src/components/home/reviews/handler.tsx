@@ -2,6 +2,7 @@
 
 import { css } from "@emotion/react";
 import styled from "@emotion/styled";
+import { useCallback, useState } from "react";
 
 const Container = styled.div`
   position: absolute;
@@ -41,15 +42,30 @@ interface Props {
 }
 
 const Handler = ({ current, total, toPrevious, toNext }: Props) => {
+  const [buttonActive, setButtonActive] = useState<boolean>(true);
+  const throttle = useCallback(
+    (callback: () => void) => {
+      if (buttonActive) {
+        setButtonActive(false);
+        callback();
+
+        setTimeout(() => {
+          setButtonActive(true);
+        }, 550);
+      }
+    },
+    [buttonActive]
+  );
+
   return (
     <Container>
-      <Button onClick={toPrevious} dir="left">
+      <Button onClick={throttle.bind(this, toPrevious)} dir="left">
         <img src={"/icons/ic_arrow_down.svg"} />
       </Button>
       <Indicator>
         {current}/{total}
       </Indicator>
-      <Button onClick={toNext} dir="right">
+      <Button onClick={throttle.bind(this, toNext)} dir="right">
         <img src={"/icons/ic_arrow_down.svg"} />
       </Button>
     </Container>
