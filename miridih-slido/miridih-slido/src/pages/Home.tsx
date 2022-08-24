@@ -6,7 +6,7 @@ import AutoPlayVideo from "../components/common/AutoPlayVideo";
 import Button from "../components/common/Button";
 import Text from "../components/common/Text";
 import UnderlineLink from "../components/common/UnderlineLink";
-import Badges from "../components/home/badges.tsx";
+import Badges from "../components/home/badges";
 import Integrations from "../components/home/integrations";
 import MainFeatureViewer from "../components/home/main-feature-viewer";
 import SubFeatures from "../components/home/sub-features";
