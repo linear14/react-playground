@@ -7,12 +7,74 @@ import { marginCss } from "../../../utils/style-util";
 import Text from "../../common/Text";
 
 const slideToLeft = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
 
+  100% {
+    transform: translateX(0%);
+  }
 `;
 
-const Container = styled.div`
+const slideToRight = keyframes`
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+`;
+
+const Container = styled.div<{
+  isCurrentData: boolean;
+  dir?: "left" | "right";
+}>`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
   display: flex;
   justify-content: space-between;
+
+  ${({ isCurrentData, dir }) =>
+    dir === "left" && isCurrentData
+      ? css`
+          top: 0;
+          left: 0;
+        `
+      : dir === "left" && !isCurrentData
+      ? css`
+          top: 0;
+          left: -100%;
+        `
+      : dir === "right" && isCurrentData
+      ? css`
+          top: 0;
+          right: 0;
+        `
+      : dir === "right" && !isCurrentData
+      ? css`
+          top: 0;
+          right: -100%;
+        `
+      : css`
+          top: 0;
+          left: 0;
+        `}
+
+  ${({ dir }) =>
+    dir === "left"
+      ? css`
+          animation: ${slideToLeft} 0.5s;
+        `
+      : dir === "right"
+      ? css`
+          animation: ${slideToRight} 0.5s;
+        `
+      : css`
+          animation: none;
+        `}
 `;
 
 const Left = styled.div`
@@ -41,19 +103,24 @@ const StaffImg = styled.img`
 
 interface Props {
   item: Review;
-  // handleRouter: (dir: "left" | "right") => void;
+  isCurrentData?: boolean;
+  dir?: "left" | "right";
 }
 
-const ReviewItem = ({ item }: Props) => {
+const ReviewItem = ({ item, isCurrentData = false, dir }: Props) => {
   return (
-    <Container>
+    <Container isCurrentData={isCurrentData} dir={dir} key={item.id}>
       <Left>
         <Logo src={item.companyLogo} alt={item.company} />
         <Comment css={marginCss({ top: 24 })}>"{item.comment}"</Comment>
         <Staff css={marginCss({ top: 16 })}>{item.staff}</Staff>
       </Left>
       <Right>
-        <StaffImg src={item.staffPhoto} alt={item.staff} />
+        <StaffImg
+          css={marginCss({ right: 16 })}
+          src={item.staffPhoto}
+          alt={item.staff}
+        />
       </Right>
     </Container>
   );
