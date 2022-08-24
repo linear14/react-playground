@@ -9,6 +9,7 @@ import UnderlineLink from "../components/common/UnderlineLink";
 import Badges from "../components/home/badges";
 import Integrations from "../components/home/integrations";
 import MainFeatureViewer from "../components/home/main-feature-viewer";
+import Reviews from "../components/home/reviews";
 import SubFeatures from "../components/home/sub-features";
 import { marginCss, paddingCss } from "../utils/style-util";
 
@@ -48,7 +49,7 @@ const H2 = styled.h2`
 const Home = () => {
   return (
     <>
-      <Section css={paddingCss({ horizontal: 32 })}>
+      <Section css={paddingCss({ horizontal: 32, top: 64 })}>
         <H1>
           Your go-to interaction app
           <br />
@@ -100,6 +101,12 @@ const Home = () => {
       </Section>
       <Section css={paddingCss({ vertical: 56 })}>
         <Badges />
+      </Section>
+      <Section css={paddingCss({ vertical: 80, horizontal: 104 })}>
+        <H2 css={paddingCss({ bottom: 48 })}>
+          Trusted by 860K customers worldwide
+        </H2>
+        <Reviews />
       </Section>
     </>
   );

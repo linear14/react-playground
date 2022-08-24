@@ -9,7 +9,7 @@ import Logo from "./logo";
 
 const Container = styled.div`
   padding: 16px 0;
-  background-color: #dddddd;
+  border-bottom: 1px solid #dddddd;
 `;
 
 const NavContainer = styled.nav`
